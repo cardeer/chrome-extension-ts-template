@@ -12,7 +12,6 @@ const config: webpack.Configuration = {
     ignored: /node_modules/,
   },
   entry: {
-    main: "./src/index.ts",
     service_worker: "./src/service_worker.ts",
     content: "./src/content.ts",
     options: "./src/options/index.tsx",
