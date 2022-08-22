@@ -1,0 +1,6 @@
+{
+  "manifest_version": 3,
+  "name": "Test extension",
+  "description": "An example chrome extension with MV3",
+  "version": "1.0.0"
+}
