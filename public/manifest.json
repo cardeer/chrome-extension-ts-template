@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Example Extension with TypeScript",
+  "name": "Chrome Extension with TypeScript",
   "version": "1.0.0",
   "action": {
     "default_popup": "./index.html"
