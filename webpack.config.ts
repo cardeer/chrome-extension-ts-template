@@ -4,6 +4,7 @@ import TerserPlugin from 'terser-webpack-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 
 const config: Configuration = {
   mode: 'production',
@@ -34,10 +35,12 @@ const config: Configuration = {
     clean: true,
   },
   optimization: {
+    minimize: true,
     minimizer: [
       new TerserPlugin({
         extractComments: false,
       }),
+      new CssMinimizerPlugin(),
     ],
   },
   module: {
@@ -52,6 +55,7 @@ const config: Configuration = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
+          'postcss-loader',
           {
             loader: 'sass-loader',
             options: {
@@ -62,7 +66,7 @@ const config: Configuration = {
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.(png|jpg|jpeg|svg)$/i,
