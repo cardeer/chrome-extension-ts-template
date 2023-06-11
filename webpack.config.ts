@@ -43,12 +43,12 @@ const config: Configuration = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.tsx?$/i,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
-        test: /\.s[ac]ss$/,
+        test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
@@ -61,11 +61,11 @@ const config: Configuration = {
         ],
       },
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.(png|jpg|jpeg|svg)/,
+        test: /\.(png|jpg|jpeg|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'images/[name][hash][ext]',
